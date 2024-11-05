@@ -11,24 +11,23 @@
 <a href="/pievienot">Atzīmju pievienošana, skolotāju sasaiste</a><br>
 <a href="/atzimes">Vidējās atzīmes</a>
 <hr>
-{% block saturs%}
+{% block saturs %}
         <h1>Sveiki!</h1>
 <!-- SKolēni -->
         <form method="post">
             <input type="text" id="name" name="name" placeholder="Vārds">
             <input type="text" id="lastname" name="lastname" placeholder="Uzvārds">
-<br>        
+<br>
 <!-- Skolotāji -->
 
-            <input type="text" id="sk_name" name="sk_name" placeholder="Vārds">
-            <input type="text" id="sk_lastname" name="sk_lastname" placeholder="Uzvārds">
-<br>     
+            <input type="text" id="sk_name" name="sk_name" placeholder=" Skolotāja vārds">
+            <input type="text" id="sk_lastname" name="sk_lastname" placeholder="Skolotāja uzvārds">
+<br>
 <!-- Priekšmeti   -->
 
             <input type="text" id="prieksmets" name="prieksmets" placeholder="Priekšmeta nosaukums">
             <input type="submit" value="Pievienot!">
         </form>    
-
         <h3>{{aizsutitais}}</h3>
 
 <h1>Skolēni:</h1>
@@ -38,12 +37,10 @@
                 <th>Uzvārds</th>
             </tr>
             {% for viens in skoleni %}
-
             <tr>
             <td>{{viens[0]}}</td>
             <td>{{viens[1]}}</td>
             </tr>
-
             {% endfor %}
         </table>
 
@@ -53,21 +50,25 @@
                 <th>Vārds</th>
                 <th>Uzvārds</th>
             </tr>
-        </tr>
-        {% for viens in skolotaji %}
+            {% for viens in skolotaji %}
+            <tr>
+            <td>{{viens[0]}}</td>
+            <td>{{viens[1]}}</td>
+            </tr>
+            {% endfor %}
 
-        <tr>
-        <td>{{viens[0]}}</td>
-        <td>{{viens[1]}}</td>
-        </tr>
-
-        {% endfor %}
         </table>
         <h1>Priekšmeti:</h1>
         <table class="table">
             <tr>
                 <th>Priekšmeta nosaukums</th>
             </tr>
+            {% for viens in prieksmeti %}
+            <tr>
+            <td>{{viens[0]}}</td>
+            </tr>
+            {% endfor %}
+
         </table>
 {% endblock %}
     </body>
